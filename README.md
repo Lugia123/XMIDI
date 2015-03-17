@@ -15,7 +15,7 @@
 
 ###插播广告
 >   给自己游戏做个宣传，欢迎大家下载
-![AD](http://imgsrc.baidu.com/forum/w=580/sign=fce71eb783d6277fe912323018391f63/848b594e9258d109c83823bed558ccbf6e814dc6.jpg?v=tbs)
+![AD](http://img1.ph.126.net/imgkyxAM-XEboVfJ_aTYZA==/649081296312690109.jpg)
 
 ###API初始化方法
 ```javascript
