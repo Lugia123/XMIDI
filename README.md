@@ -4,7 +4,7 @@
 >     XMIDI是一款IOS上的MIDI文件播放引擎，基于Audio Toolbox Framework和OpenAL这两个库。 	
 >     XMIDI使用Audio Toolbox Framework下API来完成MIDI文件的读取和解析，然后使用OpenAL来播放对应的音符。
 >     OpenAL播放声音时，对声音做了音量、立体声和渐隐处理，来模拟真实钢琴弹奏效果。
->     播放控制没有对制作应接口，主要是考虑大家可以自行控制播放。
+>     播放控制没有制作对应接口，主要是考虑大家可以自行控制播放。
 
 ###视频演示
 [Demo 视频截这里](http://v.youku.com/v_show/id_XOTEzMTc0MTYw.html)
@@ -93,7 +93,7 @@
             var bpm:Float32 = XMidiEvent.getTempoBpmInTimeStamp(Float32(playTimeStamp))
             playTimeStamp += NSTimeInterval(Float32(currentTime) / 60 * bpm)
             playSound()
-            //防止益处
+            //防止溢出
             if (playTimeStamp > 100000){
                 playTimeStamp = 0
             }
