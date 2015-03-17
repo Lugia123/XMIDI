@@ -1,8 +1,8 @@
 #XMIDI
 ###简介
 
->     XMIDI是一款IOS上的MIDI文件播放引擎，基于Audio Toolbox FrameworkReference和OpenAL这两个库。 	
->     XMIDI使用Audio Toolbox Framework Reference下API来完成MIDI文件的读取和解析，然后使用OpenAL来播放对应的音符。
+>     XMIDI是一款IOS上的MIDI文件播放引擎，基于Audio Toolbox Framework和OpenAL这两个库。 	
+>     XMIDI使用Audio Toolbox Framework下API来完成MIDI文件的读取和解析，然后使用OpenAL来播放对应的音符。
 >     OpenAL播放声音时，对声音做了音量、立体声和渐隐处理，来模拟真实钢琴弹奏效果。
 >     播放控制没有对制作应接口，主要是考虑大家可以自行控制播放。
 
