@@ -6,6 +6,9 @@
 >     OpenAL播放声音时，对声音做了音量、立体声和渐隐处理，来模拟真实钢琴弹奏效果。
 >     播放控制没有对制作应接口，主要是考虑大家可以自行控制播放。
 
+###视频演示
+[Demo 视频截这里](http://v.youku.com/v_show/id_XOTEzMTc0MTYw.html)
+
 ###API初始化方法
 ```javascript
     //初始化声音数据
