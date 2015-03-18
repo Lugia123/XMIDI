@@ -81,6 +81,9 @@
 +(float)getTempoBpmInTimeStamp:(float)timeStamp{
     NSMutableArray* tempoChildEvents = [XMidiSequence getTempoEvents];
     int bpm = 100;
+    if (timeStamp <= 0 && tempoChildEvents.count > 0){
+        return [tempoChildEvents[0] bpm];
+    }
     for (int i=(int)([tempoChildEvents count] - 1); i>=0; i--) {
         if ([tempoChildEvents[i] timeStamp] <= timeStamp){
             if ([tempoChildEvents[i] bpm] != 0){

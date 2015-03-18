@@ -21,6 +21,7 @@
 
 - (id)init:(MusicTrack)musicTrack{
     if(self = [super init]){
+        self.playEventIndex = 0;
         self.musicTrack = musicTrack;
         [self initEvent];
     }

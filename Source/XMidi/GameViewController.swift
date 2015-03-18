@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
         XOpenAL.initDevice()
         XSoundFile.initSoundData()
 
-        var scene:XGameScene = XGameScene(size:self.view.frame.size)
+        var scene:ObjCPlayer = ObjCPlayer(size:self.view.frame.size)
         let skView = self.view as SKView
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .AspectFill

@@ -23,6 +23,9 @@
 @property (nonatomic) MusicTrack musicTrack;
 @property (nonatomic) XMidiEventIterator* eventIterator;
 
+//当前播放到第几个事件
+@property (nonatomic) int playEventIndex;
+
 -(MusicTimeStamp)length;
 
 - (id)init:(MusicTrack)musicTrack;
