@@ -55,6 +55,7 @@ static NSMutableArray* tempoChildEvents;
     
     [self initTempoTrack];
     [self initTrack];
+    [self initMusicTotalTimeStamp];
 }
 
 -(void)initTempoTrack{
@@ -86,6 +87,32 @@ static NSMutableArray* tempoChildEvents;
         XMidiTrack* xTrack = [[XMidiTrack alloc] init:track];
         [self.tracks addObject:xTrack];
     }
+}
+
+-(void)initMusicTotalTimeStamp{
+    //计算整首歌曲时间
+    //获取歌曲最大timeStamp
+    self.musicTotalTime = 0;
+    double maxTimeStamp = 0;
+    for (int i = 0; i< self.tracks.count; i++) {
+        XMidiTrack* track = self.tracks[i];
+        if (track.eventIterator.childEvents.count <= 0){
+            continue;
+        }
+        XMidiEvent* lastEvent = track.eventIterator.childEvents[track.eventIterator.childEvents.count - 1];
+        if (maxTimeStamp < lastEvent.timeStamp){
+            maxTimeStamp = lastEvent.timeStamp;
+        }
+    }
+    
+    double playTimeStamp = 0;
+    while (playTimeStamp < maxTimeStamp) {
+        double bpm = [XMidiEvent getTempoBpmInTimeStamp:playTimeStamp];
+        playTimeStamp += 1 / 60.0 / 60.0 * bpm;
+        self.musicTotalTime += 1 / 60.0;
+    }
+    
+    NSLog(@"max:%f play:%f  total:%f",maxTimeStamp,playTimeStamp,self.musicTotalTime);
 }
 
 @end

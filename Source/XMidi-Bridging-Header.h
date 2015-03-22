@@ -9,3 +9,4 @@
 #import "XMidiEvent.h"
 #import "XMidiNoteMessage.h"
 #import "XMidiPlayer.h"
+#import "XSharderCenter.h"

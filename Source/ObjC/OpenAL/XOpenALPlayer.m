@@ -21,6 +21,15 @@ Source;
 
 @implementation XOpenALPlayer
 static Source _sources[MAX_BUFFERS];
+static id<XOpenALPlayerDelegate> delegate;
+
++(id<XOpenALPlayerDelegate>)getDelegate{
+    return delegate;
+}
+
++(void)setDelegate:(id<XOpenALPlayerDelegate>)d{
+    delegate = d;
+}
 
 +(void)addSoundBufferWithFileName:(NSString*)fileName fileExt:(NSString*)fileExt fileIndex:(int)fileIndex
 {
@@ -132,6 +141,13 @@ static Source _sources[MAX_BUFFERS];
               currentStep:1
                  startVol:vol];
     });
+    
+
+    
+    if (delegate != nil
+        && [delegate respondsToSelector:@selector(playingSoundNote:)]) {
+        [delegate playingSoundNote:xMidiNoteMessage];
+    }
 }
 
 +(void)fadeOutWith:(int)soundIndex

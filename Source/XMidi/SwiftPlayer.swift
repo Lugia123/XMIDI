@@ -30,7 +30,7 @@ class SwiftPlayer: SKScene {
         midiFiles.append(XMidiFile(fileName:"Sonata No 14 in C#min-1"))
         midiFiles.append(XMidiFile(fileName:"Sonata No 14 in C#min-3"))
         midiFiles.append(XMidiFile(fileName:"Rondo in C (Op.51. No.1.)"))
-        midiFiles.append(XMidiFile(fileName:"Rondeau"))
+        midiFiles.append(XMidiFile(fileName:"铃儿响叮当"))
         midiFiles.append(XMidiFile(fileName:"至爱丽丝"))
         midiFiles.append(XMidiFile(fileName:"绮想轮旋曲"))
         midiFiles.append(XMidiFile(fileName:"埃克赛斯舞曲"))

@@ -36,6 +36,7 @@ class XBarButton:SKSpriteNode {
     
     private var layouts:NSMutableArray!
     private var titleNode:SKLabelNode!
+    private var colorAlphaDark = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.4)
     
     func initializer(postion:CGPoint,size:CGSize){
         self.userInteractionEnabled = true

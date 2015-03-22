@@ -22,6 +22,7 @@
 @interface XMidiSequence : NSObject
 @property (nonatomic) NSMutableArray* tracks;
 @property (nonatomic) MusicSequence sequence;
+@property (nonatomic) double musicTotalTime;
 
 +(NSMutableArray*)getTempoEvents;
 +(void)setTempoEvents:(NSMutableArray*)newVal;

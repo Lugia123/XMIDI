@@ -102,6 +102,7 @@
         return;
     }
     self.isPlayed = true;
+    
     [XOpenALPlayer playSound:self.noteMessage];
 }
 @end

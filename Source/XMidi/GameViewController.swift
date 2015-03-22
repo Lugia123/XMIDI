@@ -18,10 +18,14 @@ class GameViewController: UIViewController {
         XOpenAL.initDevice()
         XSoundFile.initSoundData()
 
-        var scene:ObjCPlayer = ObjCPlayer(size:self.view.frame.size)
+        var scene:MusicPlay = MusicPlay(size:self.view.frame.size)
         let skView = self.view as SKView
+        
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .AspectFill
+        
+//        skView.showsFPS = true
+//        skView.showsNodeCount = true
         
         skView.presentScene(scene)
     }

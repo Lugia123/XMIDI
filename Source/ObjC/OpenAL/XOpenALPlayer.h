@@ -25,7 +25,17 @@
 
 @class XMidiNoteMessage;
 
-@interface XOpenALPlayer : NSObject
+@protocol XOpenALPlayerDelegate <NSObject>
+@optional
++ (void)playingSoundNote:(XMidiNoteMessage *)xMidiNoteMessage;
+@end
+
+@interface XOpenALPlayer : NSObject <XOpenALPlayerDelegate>
+
++(id<XOpenALPlayerDelegate>)getDelegate;
++(void)setDelegate:(id<XOpenALPlayerDelegate>)d;
+
 + (void)addSoundBufferWithFileName:(NSString*)fileName fileExt:(NSString*)fileExt fileIndex:(int)fileIndex;
 + (void)playSound:(XMidiNoteMessage *)xMidiNoteMessage;
 @end
+
