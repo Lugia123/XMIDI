@@ -11,13 +11,19 @@
 >     交流群:334533178
 
 ###视频演示
-[Demo 视频截这里](http://v.youku.com/v_show/id_XOTEzMTc0MTYw.html)
+>[Demo 视频截这里](http://v.youku.com/v_show/id_XOTEzMTc0MTYw.html)
+
+###Demo截图
+>![AD](http://img1.ph.126.net/iXCESSxlr8pTC7d2V6OwnQ==/2773372945548026299.jpg)
 
 ###插播广告
 >   给自己游戏做个宣传，欢迎大家下载
-![AD](http://img1.ph.126.net/imgkyxAM-XEboVfJ_aTYZA==/649081296312690109.jpg)
+>![AD](http://img1.ph.126.net/imgkyxAM-XEboVfJ_aTYZA==/649081296312690109.jpg)
 
 ###更新履历
+####2015-03-22
+>1.增加播放控制。
+
 ####2015-03-18
 >1.增加XMidiPlayer，现在播放MIDI文件更为方便。
 
@@ -42,4 +48,22 @@
     var midiPlayer:XMidiPlayer = XMidiPlayer()
     midiPlayer.initMidi(url!)
     midiPlayer.play()
+```
+
+###3.XMidiPlayer播放控制API
+```javascript
+    //暂停
+    -(void)pause;
+
+    //播放、继续播放
+    -(void)play;
+
+    //重播
+    -(void)replay;
+
+    //获取当前播放进度 返回一个0～1的一个小数，代表进度百分比
+    -(double)getProgress;
+
+    //设置当前播放进度 progress是一个0～1的一个小数，代表进度百分比
+    -(void)setProgress:(double)progress;
 ```
