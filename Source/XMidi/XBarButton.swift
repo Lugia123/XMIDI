@@ -1,5 +1,5 @@
 import Foundation
-import Spritekit
+import SpriteKit
 
 class XBarButton:SKSpriteNode {
     private var _title:String = ""
@@ -53,7 +53,7 @@ class XBarButton:SKSpriteNode {
         self.addChild(titleNode)
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         if (xClick != nil){
             self.xClick!()
         }

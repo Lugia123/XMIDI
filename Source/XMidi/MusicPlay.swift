@@ -27,9 +27,15 @@ class MusicPlay: SKScene,XOpenALPlayerDelegate,XMidiPlayerDelegate{
     var midiPlayer:XMidiPlayer = XMidiPlayer()
     
     override func didMoveToView(view: SKView) {
+        //初始化播放
         XOpenALPlayer.setDelegate(self)
         midiPlayer.delegate = self
+        XMidiPlayer.xInit()
+        
+        //初始化midi列表
         initMidiFiles()
+        
+        //初始化UI
         initLayout()
         initUI()
     }
@@ -153,6 +159,10 @@ class MusicPlay: SKScene,XOpenALPlayerDelegate,XMidiPlayerDelegate{
     }
     
     func initBgShader(soundNote:Float32){
+        if (isLowDevice()){
+            return
+        }
+        
         bgNode.shader = XSharderCenter.getSound(Float32(self.size.width),
             nodeHeight: Float32(self.size.height),
             offsetX: offsetX,
@@ -170,14 +180,21 @@ class MusicPlay: SKScene,XOpenALPlayerDelegate,XMidiPlayerDelegate{
         self.playMidi(index)
     }
     
+    //播放音乐
     func playMidi(index:Int){
+        midiPlayer.pause()
         var midi = midiFiles[index]
         
-        //读取文件
         var filePath = NSBundle.mainBundle().pathForResource(midi.fileName, ofType: "mid")
+        
+        //播放MIDI URL
         var url = NSURL(fileURLWithPath: filePath!)
-
         midiPlayer.initMidi(url!)
+        
+        //播放MIDI Data
+//        var data = NSFileManager.defaultManager().contentsAtPath(filePath!)
+//        midiPlayer.initMidiWithData(data)
+        
         midiPlayer.play()
         self.playButton.iconType = XIconButton.xIconButtonTypes.PauseIcon
     }
@@ -188,5 +205,21 @@ class MusicPlay: SKScene,XOpenALPlayerDelegate,XMidiPlayerDelegate{
     
     func playingSoundNote(xMidiNoteMessage: XMidiNoteMessage!) {
         initBgShader(Float32(xMidiNoteMessage.note))
+    }
+    
+    //低性能设备，关闭shader
+    func isLowDevice() -> Bool{
+        switch iAppInfos.sharedInfo().deviceSysInfo{
+        case "iPhone3,1","iPhone3,2","iPhone3,3","iPhone4,1","iPhone5,1","iPhone5,2","iPhone5,3","iPhone5,4":
+            return true
+        case "iPod4,1","iPod5,1":
+            return true
+        case "iPad2,1","iPad2,2","iPad2,3","iPad2,4","iPad2,5","iPad2,6","iPad2,7","iPad3,1","iPad3,2","iPad3,3","iPad3,4","iPad3,5","iPad3,6":
+            return true
+        case "i386","x86_64":
+            return true
+        default:
+            return false
+        }
     }
 }

@@ -1,5 +1,5 @@
 import Foundation
-import Spritekit
+import SpriteKit
 
 class XProgressBar:SKSpriteNode {
     private var _progress:Double = 0
@@ -81,7 +81,7 @@ class XProgressBar:SKSpriteNode {
         fontBarNode.size.width = (self.size.width - buttonNode.size.width) * CGFloat(_progress)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if (!isTouched){
             for touch in touches{
                 isTouched = true
@@ -90,9 +90,9 @@ class XProgressBar:SKSpriteNode {
         }
     }
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         if (isTouched){
-            for touch in touches{
+            for touch in (touches as! Set<UITouch>){
                 var prevPos = touch.previousLocationInNode(self)
                 var pos = touch.locationInNode(self)
                 var dx = prevPos.x - pos.x
@@ -104,14 +104,14 @@ class XProgressBar:SKSpriteNode {
         
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         if (xProgressChanged != nil){
             self.xProgressChanged!(progress: self._progress)
         }
         isTouched = false
     }
     
-    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
         isTouched = false
     }
 }

@@ -39,7 +39,7 @@ class XIconButton:SKSpriteNode {
         self.iconType = iconType
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         if (!isEnabled){
             return
         }

@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>DBA9776C-3163-43BE-8789-DD52F63C0F4D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>XMidi</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>99B37B237DF5A15FDE52078136BBD9AF7BBB7A0C</key>
 		<string>https://github.com/Lugia123/XMIDI.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Source/XMidi.xcodeproj</string>
+	<string>Source/XMidi.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>99B37B237DF5A15FDE52078136BBD9AF7BBB7A0C</key>

@@ -13,19 +13,15 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //初始化声音数据
-        XOpenAL.initDevice()
-        XSoundFile.initSoundData()
 
         var scene:MusicPlay = MusicPlay(size:self.view.frame.size)
-        let skView = self.view as SKView
+        let skView = self.view as! SKView
         
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .AspectFill
         
-//        skView.showsFPS = true
-//        skView.showsNodeCount = true
+        skView.showsFPS = true
+        skView.showsNodeCount = true
         
         skView.presentScene(scene)
     }
